@@ -1,0 +1,52 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<div *ngIf="!loading" class="col-sm-6 offset-sm-3 mt-2">
+    <form [formGroup]="projectForm">
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <input type="text" placeholder="titre du projet" id="title" formControlName="title" class="form-control">
+        </div>
+        <button class="btn btn-success" type="button" (click)="filePicker.click()">Ajouter la fiche du projet</button>
+        <input type="file"  #filePicker (change)="onImagePick($event)"  class="form-control" accept="application/pdf" accept="application/vnd.openxmlformats-officedocument.presentationml.presentation" accept="application/vnd.ms-powerpoint">
+        <div class="image-preview" *ngIf="imagePreview">
+          <img [src]="imagePreview" alt="">
+        </div>
+        <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+       
+    
+        <div class="form-group">
+            <label for="chef">chef du projet</label>
+            <input type="text" placeholder="chef du projet" id="chef" formControlName="chef" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="avancement">Avancement</label>
+            <input type="text" placeholder="avancement du projet" id="avancement" formControlName="avancement" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="blocage">Blocage/risques</label>
+            <input type="text" placeholder="blocages ou risques" id="blocage" formControlName="blocage" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="resteafaire">reste à faire</label>
+            <input type="text" placeholder="reste à faire du projet" id="resteafaire" formControlName="resteafaire" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="pmo">PMO</label>
+            <input type="text" placeholder="PMO" id="pmo" formControlName="pmo" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="echeance">Echéance</label>
+            <input type="text" placeholder="Echéance planifié" id="echeance" formControlName="echeance" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="pole">pole</label>
+            <input type="text" placeholder="pole" id="pole" formControlName="pole" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="structure">structure</label>
+            <input type="text" placeholder="Structure" id="structure" formControlName="structure" class="form-control">
+          </div>
+       
+        <button class="btn btn-primary" (click)="onSubmit()" [disabled]="projectForm.invalid">Valider</button>
+        <p class="alert-danger" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+    </div>

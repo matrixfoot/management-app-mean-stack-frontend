@@ -1,0 +1,30 @@
+<header>
+  <h1 class="header-title">
+    Tableau de bord
+  </h1>
+  <ul class="header-navigation">
+    <li class="header-navigation-item" *ngIf="part >= 3 && isAuth">
+      <a class="header-link" routerLink="/all-projet" routerLinkActive="active">Liste des projets</a>
+    </li>
+    <li class="header-navigation-item" *ngIf="part >= 3 && isAuth">
+      <a class="header-link" routerLink="/new-project" routerLinkActive="active">Nouveau projet</a>
+    </li>
+    <li class="header-navigation-item" *ngIf="(part >= 3 && isAuth)">
+      <a class="header-link" style="cursor: pointer" (click)="onLogout()">DECONNEXION</a>
+    </li>
+    <li class="header-navigation-item" *ngIf="(part >= 3 && !isAuth)">
+      <a class="header-link" routerLink="/auth/login" routerLinkActive="active">CONNEXION</a>
+    </li>
+    <li class="header-navigation-item" *ngIf="(part >= 3 && !isAuth)">
+      <a class="header-link" routerLink="/auth/signup" routerLinkActive="active">INSCRIPTION</a>
+    </li>
+  </ul>
+  <ul class="header-navigation nav-end">
+    
+  </ul>
+</header>
+<div class="hero-image" *ngIf="mode === 'list'">
+  <h2 class="hero-text">
+    Le meilleur endroit pour la vision golable des projets
+  </h2>
+</div>

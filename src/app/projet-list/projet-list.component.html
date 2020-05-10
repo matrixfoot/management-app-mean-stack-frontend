@@ -1,0 +1,42 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<p class="text-center" *ngIf="projet.length <= 0 && !loading">Pas de projets !</p>
+<div class="projet-grid" *ngIf="projet.length >= 0">
+  <h2 class="text-center" > Liste des projets</h2>  
+  <table class="table table-striped">
+    <thead>
+    <tr>
+
+      <th>#</th>
+      <th>Titre</th>
+      
+      <th>Reste à faire</th>
+      <th>Avancement</th>
+      <th>Fiche projet</th>
+      
+      <th>PMO</th>
+      <th>Echeance</th>
+      
+      <th>Détails projet</th>
+      
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let project of projet">
+
+      <td>{{project._id}}</td>
+      <td>{{project.title}}</td>
+      
+      <td>{{project.resteafaire}}</td>
+      <td>{{project.avancement}}</td>
+      <td>{{project.ficheurl}} <a href={{project.ficheUrl}}>Ouvrir le PDF</a></td>
+      
+      <td>{{project.pmo}}</td>
+      <td>{{project.echeance}}</td>
+      
+      <td>  <button type="button" class="btn btn-success" (click)="getNavigation('view', project._id)">View</button></td>
+      
+        
+    </tr>
+    </tbody>
+  </table>
+</div>
