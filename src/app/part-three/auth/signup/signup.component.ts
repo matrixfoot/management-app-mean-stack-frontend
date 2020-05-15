@@ -24,7 +24,12 @@ export class SignupComponent implements OnInit {
     this.state.mode$.next('form');
     this.signupForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
-      password: [null, Validators.required]
+      password: [null, Validators.required],
+      firstname: [null, Validators.required],
+      lastname: [null, Validators.required],
+      direction: [null, Validators.required],
+      fonction: [null, Validators.required],
+      role: [ "basic",Validators.required],
     });
   }
 
@@ -32,7 +37,12 @@ export class SignupComponent implements OnInit {
     this.loading = true;
     const email = this.signupForm.get('email').value;
     const password = this.signupForm.get('password').value;
-    this.auth.createNewUser(email, password).then(
+    const firstname = this.signupForm.get('firstname').value;
+    const lastname = this.signupForm.get('lastname').value;
+    const fonction = this.signupForm.get('fonction').value;
+    const direction = this.signupForm.get('direction').value;
+    const role = this.signupForm.get('role').value;
+    this.auth.createNewUser(email, password,firstname,lastname,fonction,direction,role).then(
       () => {
         this.loading = false;
         if (this.state.part === 3) {
