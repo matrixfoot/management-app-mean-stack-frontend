@@ -13,6 +13,7 @@ export class AuthService {
   userId: string;
   userrole:string;
   
+  
 
   constructor(private router: Router,
               private http: HttpClient) {}

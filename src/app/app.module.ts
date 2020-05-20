@@ -21,7 +21,7 @@ import { ProjetListComponent } from './projet-list/projet-list.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { ViewProjectComponent } from './view-project/view-project.component';
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
-import { UsersListComponent } from './users-list/users-list.component';
+import { UserslistComponent } from './users-list/users-list.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { ModifyUserComponent } from './modify-user/modify-user.component';
 
@@ -40,7 +40,7 @@ import { ModifyUserComponent } from './modify-user/modify-user.component';
     NewProjectComponent,
     ViewProjectComponent,
     ModifyProjectComponent,
-    UsersListComponent,
+    UserslistComponent,
     ViewUserComponent,
     ModifyUserComponent
     

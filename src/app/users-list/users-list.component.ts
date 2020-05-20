@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-
+import { first } from 'rxjs/operators';
 import { UserService } from '../services/users.service';
 import { Subscription } from 'rxjs';
 import { User } from '../models/user.model';
@@ -12,24 +12,29 @@ import { Router } from '@angular/router';
 })
 export class UserslistComponent implements OnInit {
 
-  public User: User[] = [];
-  
   public loading: boolean;
-
+  public users: User[] = [];
+  private usersSub: Subscription;
   
   
 
   constructor(
               private UserService: UserService,
               private router: Router) { }
-
-  ngOnInit() {
-    this.loading = true;
-    
-    
-    this.UserService.getAll();
-    this.loading = false;
-  }
+              ngOnInit() {
+                this.loading = true;
+                
+                this.usersSub = this.UserService.users$.subscribe(
+                  (users) => {
+                    this.users = users;
+                    this.loading = false;
+                  }
+                );
+               
+                this.UserService.getAll();
+              }
+              
+  
 
   
     getNavigation(link, id){

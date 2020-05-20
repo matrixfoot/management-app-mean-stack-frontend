@@ -1,6 +1,6 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
-<p class="text-center" *ngIf="projet.length <= 0 && !loading">Pas d'utilisateurs !</p>
-<div class="projet-grid" *ngIf="projet.length >= 0">
+
+<div class="users-grid" >
   <h2 class="text-center" > Liste des utilisateurs</h2>  
   <table class="table table-striped">
     <thead>
@@ -19,11 +19,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let users of users">
+    <tr *ngFor="let user of users.data">
 
       <td>{{user._id}}</td>
       <td>{{user.firstname}}</td>
       
+
       <td>{{user.lastname}}</td>
       <td>{{user.fonction}}</td>
       <td>{{user.direction}}</td>

@@ -7,6 +7,9 @@
       <a class="header-link" routerLink="/all-projet" routerLinkActive="active">Liste des projets</a>
     </li>
     <li class="header-navigation-item" *ngIf="part >= 3 && isAuth">
+      <a class="header-link" routerLink="/users-list" routerLinkActive="active">Liste des utilisateurs</a>
+    </li>
+    <li class="header-navigation-item" *ngIf="part >= 3 && isAuth">
       <a class="header-link" routerLink="/new-project" routerLinkActive="active">Nouveau projet</a>
     </li>
     <li class="header-navigation-item" *ngIf="(part >= 3 && isAuth)">

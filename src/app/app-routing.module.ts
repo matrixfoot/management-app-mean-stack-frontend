@@ -12,6 +12,7 @@ import { ProjetListComponent } from './projet-list/projet-list.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { ViewProjectComponent } from './view-project/view-project.component';
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
+import { UserslistComponent } from './users-list/users-list.component';
 const routes: Routes = [
   
   { path: 'part-three', component: PartThreeComponent,
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'auth/login', component: LoginComponent },
   { path: 'auth/signup', component: SignupComponent },
   { path: 'all-projet', component: ProjetListComponent, canActivate: [AuthGuard] },
+  { path: 'users-list', component: UserslistComponent, canActivate: [AuthGuard] },
   { path: 'new-project', component: NewProjectComponent, canActivate: [AuthGuard] },
   { path: 'view/:id', component: ViewProjectComponent, canActivate: [AuthGuard] },
   { path: 'update/:id', component: ModifyProjectComponent, canActivate: [AuthGuard] },
