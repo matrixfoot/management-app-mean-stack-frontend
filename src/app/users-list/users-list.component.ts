@@ -15,7 +15,7 @@ export class UserslistComponent implements OnInit {
   public loading: boolean;
   public users: User[] = [];
   private usersSub: Subscription;
-  
+  errormsg:string;
   
 
   constructor(
@@ -28,6 +28,11 @@ export class UserslistComponent implements OnInit {
                   (users) => {
                     this.users = users;
                     this.loading = false;
+                  },
+                  (error) => {
+                    this.loading = false;
+                    console.log(error);
+                    this.errormsg=error.message;
                   }
                 );
                

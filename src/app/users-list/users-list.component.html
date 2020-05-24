@@ -1,7 +1,10 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
 
+<p class="text-center" style="color: red;" *ngIf="users.length <= 0 ">You don't have enough permission to perform this action!!</p>
 <div class="users-grid" >
-  <h2 class="text-center" > Liste des utilisateurs</h2>  
+  <h2 class="text-center" > Liste des utilisateurs</h2>
+  
+  
   <table class="table table-striped">
     <thead>
     <tr>

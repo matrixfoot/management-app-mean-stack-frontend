@@ -36,12 +36,12 @@ export class UserService {
     
 
     getById(userID: string) {
-        return this.http.get<User[]>(`http://localhost:3000/api/user/`+ userID);
+        return this.http.get<User[]>(`http://localhost:3000/api/users/`+ userID);
     }
     modifyById(userID: string, role:string) {
-        return this.http.put<User>('http://localhost:3000/api/user/'+ userID , role);
+        return this.http.put<User>('http://localhost:3000/api/users/'+ userID , role);
     }
     deleteById(userID: string) {
-        return this.http.get<User>('http://localhost:3000/api/user/'+ userID );
+        return this.http.get<User>('http://localhost:3000/api/users/'+ userID );
     }
 }
